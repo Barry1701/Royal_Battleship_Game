@@ -82,13 +82,25 @@ def computer_turn(board, computer_score):
         print("Computer got a hit!")
         board[guess_row][guess_col] = "*"
         computer_score += 1
-        print_score(0, computer_score)
+        print_scores(0, computer_score)
         return True
 
     else:
         print("Computer missed this time!")
         board[guess_row][guess_col] = "X"
         return False
+
+def separator_line():
+    """
+    Function print a separator line
+    """
+    print("-" * 43)
+
+def print_scores(player, computer):
+    """
+    Function print the current scores.
+    """
+    print(f"After this hit the scores are:\nPlayer: {player}. Computer: {computer}")
 
 
 

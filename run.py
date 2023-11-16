@@ -30,3 +30,9 @@ def place_ships(board, num_ships):
             if board[row][col] == "0":
                 board[row][col] = "$"
                 break
+    
+def hit_shot(board, guess_row, guess_col):
+    """
+    Check if a shot hit a ship.
+    """
+    return board[guess_row][guess_col] == "$"

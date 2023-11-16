@@ -102,5 +102,48 @@ def print_scores(player, computer):
     """
     print(f"After this hit the scores are:\nPlayer: {player}. Computer: {computer}")
 
+def main():
+    """
+    Run the Royal Battleship Game, initializing boards, placing ships, and managing player and computer turns.
+    """
+    print("Welcome to Royal Battleship Game")
+    print("Board Size: 5. Number of Ships: 4")
+    print("Top Left Corner Is Row: 0, col: 0")
+
+    player_name = input("Enter your name: ")
+
+    player_board = make_board(5)
+    computer_board = make_board(5)
+
+    place_ships(player_board, 4)
+    place_ships(computer_board, 4)
+
+    player_score = 0
+    computer_score = 0
+
+    while True:
+        separator_line()
+        print(f"{player_name}'s Board:")
+        print_board(player_board, show_ships = True)
+
+        separator_line()
+        print("Computer's Board:")
+        print_board(computer_board)
+
+        palyer_hit = player_turn(computer_board, player_score)
+
+        separator_line()
+
+        computer_hit = computer_turn(player_board, computer_score)
+
+        separator_line()
+
+        choice = input("Enter any key to continue or 'n' to quit: ")
+        if choice.lower() == 'n':
+        break
+
+if __name__ == "__main__":
+    main()
+
 
 

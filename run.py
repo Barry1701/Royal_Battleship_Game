@@ -69,4 +69,26 @@ def player_turn(board, player_score):
         board[guess_row][guess_col] == "X"
         return False
 
+def computer_turn(board, computer_score):
+    """
+    This function handles the computer's turn in the game. It generates random
+    coordinates for the computer's guess, checks if it's a hit, updates the game
+    board, and prints the updated scores.
+    """
+    guess_row = random.randint(0, len(board) -1)
+    guess_col = random.randint(0, len(board[0]) -1)
+
+    if hit_shot(board, guess_row, guess_col):
+        print("Computer got a hit!")
+        board[guess_row][guess_col] = "*"
+        computer_score += 1
+        print_score(0, computer_score)
+        return True
+
+    else:
+        print("Computer missed this time!")
+        board[guess_row][guess_col] = "X"
+        return False
+
+
 

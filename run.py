@@ -18,3 +18,15 @@ def print_board(board, show_ships = False):
             else:
                 print(cell, end = " ")
         print()
+
+def place_ships(board, num_ships):
+    """
+    Randomly place ships on the game board
+    """
+    for _ in range(num_ships):
+        while True:
+            row = random.randint(0, len(board) - 1)
+            col = random.randint(0, len(board[0]) - 1)
+            if board[row][col] == "0":
+                board[row][col] = "$"
+                break

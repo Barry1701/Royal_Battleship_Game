@@ -60,13 +60,13 @@ def player_turn(board, player_score):
 
     if hit_shot(board, guess_row, guess_col):
         print("Player got a Hit!")
-        board[guess_row][guess_col] == "*"
-        player_score += 1
-        print_scores(player_score, 0)
+        board[guess_row][guess_col] = "*"
+        player_score[0] += 1
+        
         return True
     else:
         print("Player missed this time!")
-        board[guess_row][guess_col] == "X"
+        board[guess_row][guess_col] = "X"
         return False
 
 def computer_turn(board, computer_score):
@@ -81,13 +81,13 @@ def computer_turn(board, computer_score):
     if hit_shot(board, guess_row, guess_col):
         print("Computer got a hit!")
         board[guess_row][guess_col] = "*"
-        computer_score += 1
-        print_scores(0, computer_score)
+        computer_score[0] += 1
+        
         return True
 
     else:
         print("Computer missed this time!")
-        board[guess_row][guess_col] = "X"
+        board[guess_row][guess_col] == "X"
         return False
 
 def separator_line():
@@ -100,7 +100,7 @@ def print_scores(player, computer):
     """
     Function print the current scores.
     """
-    print(f"After this hit the scores are:\nPlayer: {player}. Computer: {computer}")
+    print(f"After this round the scores are:\nPlayer: {player[0]}. Computer: {computer[0]}")
 
 def main():
     """
@@ -108,7 +108,7 @@ def main():
     """
     print("Welcome to Royal Battleship Game")
     print("Board Size: 5. Number of Ships: 4")
-    print("Top Left Corner Is Row: 0, col: 0")
+    print("Top Left Corner is Row: 0, col: 0")
 
     player_name = input("Enter your name: ")
 
@@ -118,8 +118,8 @@ def main():
     place_ships(player_board, 4)
     place_ships(computer_board, 4)
 
-    player_score = 0
-    computer_score = 0
+    player_score = [0]
+    computer_score = [0]
 
     while True:
         separator_line()
@@ -130,7 +130,7 @@ def main():
         print("Computer's Board:")
         print_board(computer_board)
 
-        palyer_hit = player_turn(computer_board, player_score)
+        player_hit = player_turn(computer_board, player_score)
 
         separator_line()
 
@@ -138,9 +138,11 @@ def main():
 
         separator_line()
 
+        print_scores(player_score, computer_score)
+
         choice = input("Enter any key to continue or 'n' to quit: ")
         if choice.lower() == 'n':
-        break
+            break
 
 if __name__ == "__main__":
     main()

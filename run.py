@@ -113,7 +113,23 @@ def end_game_message(player_name, player_score, computer_score ):
     else:
         print("Oh No! The Computer takes the win. Give it another shot!")
 
-    separator_line()        
+    separator_line()
+
+def new_game(player_board, computer_board, player_score, computer_score):
+    """
+    Reset the game state for a New Game
+    """
+    for row in player_board:
+        for i in range(len(row)):
+            row[i] = "0"
+
+    for row in computer_board:
+        for i in range(len(row)):
+            row[i] = "0"
+
+    player_score[0] = 0
+    computer_score[0] = 0
+
 
 def main():
     """

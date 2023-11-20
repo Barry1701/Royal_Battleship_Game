@@ -109,7 +109,7 @@ def end_game_message(player_name, player_score, computer_score ):
     separator_line()
 
     if player_score[0] == 4:
-        print(f"Fantastic work{player_name}! You are the champion!")
+        print(f"Fantastic work {player_name}! You are the champion!")
     else:
         print("Oh No! The Computer takes the win. Give it another shot!")
 
@@ -141,40 +141,54 @@ def main():
 
     player_name = input("Enter your name: ")
 
-    player_board = make_board(5)
-    computer_board = make_board(5)
-
-    place_ships(player_board, 4)
-    place_ships(computer_board, 4)
-
-    player_score = [0]
-    computer_score = [0]
-
     while True:
-        separator_line()
-        print(f"{player_name}'s Board:")
-        print_board(player_board, show_ships = True)
 
-        separator_line()
-        print("Computer's Board:")
-        print_board(computer_board)
 
-        player_hit = player_turn(computer_board, player_score)
+        player_board = make_board(5)
+        computer_board = make_board(5)
 
-        separator_line()
+        place_ships(player_board, 4)
+        place_ships(computer_board, 4)
 
-        computer_hit = computer_turn(player_board, computer_score)
+        player_score = [0]
+        computer_score = [0]
 
-        separator_line()
+        while True:
+            separator_line()
+            print(f"{player_name}'s Board:")
+            print_board(player_board, show_ships = True)
 
-        print_scores(player_score, computer_score)
+            separator_line()
+            print("Computer's Board:")
+            print_board(computer_board)
 
-        choice = input("Enter any key to continue or 'n' to quit: ")
-        if choice.lower() == 'n':
+            player_hit = player_turn(computer_board, player_score)
+
+            separator_line()
+
+            computer_hit = computer_turn(player_board, computer_score)
+
+            separator_line()
+
+            print_scores(player_score, computer_score)
+
+            if player_score[0] == 4 or computer_score[0] == 4:
+                if not end_game_message(player_name, player_score, computer_score):
+                    break
+
+        choice = input("Enter any key to start a New Game press 'e' to Exit:")
+        if choice.lower() == "e":
             break
+            
+        else:
+            new_game(player_board, computer_board, player_score, computer_score)
+
+
+        
 
 if __name__ == "__main__":
     main()
+    
 
 
 

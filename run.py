@@ -45,14 +45,22 @@ def player_turn(board, player_score):
     increment the players score and prints the updated score.
     """
     while True:
-        try:
-            guess_row = int(input("Pick a row (0,4): "))
-            guess_col = int(input("Pick a column (0,4): "))
-            if not (0 <= guess_row <= 4) or not (0 <= guess_col <= 4):
-                raise ValueError("Values must be numbers between 0 & 4!")
-            break
-        except ValueError:
-            print("You must enter a number!")
+        user_input_row = input("Pick a row (0-4): ")
+        user_input_col = input("Pick a column (0-4): ")
+
+        if not (user_input_row.isdigit() and user_input_col.isdigit()):
+            print("Only numbers are accepted for this input!")
+            continue
+
+        guess_row = int(user_input_row)
+        guess_col = int(user_input_col)
+
+        if not(0 <= guess_row <= 4) or not (0 <= guess_col <= 4):
+            print("Invalid Input. Choose a number form 0 to 4")
+            continue
+
+        break
+        
 
     if board[guess_row][guess_col] == "*" or board[guess_row][guess_col] == "X":
         print("You can't guess the same coordinates twice!")

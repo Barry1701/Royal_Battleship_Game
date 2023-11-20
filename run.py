@@ -102,6 +102,19 @@ def print_scores(player, computer):
     """
     print(f"After this round the scores are:\nPlayer: {player[0]}. Computer: {computer[0]}")
 
+def end_game_message(player_name, player_score, computer_score ):
+    """
+    Display the end game message based on the winner
+    """
+    separator_line()
+
+    if player_score[0] == 4:
+        print(f"Fantastic work{player_name}! You are the champion!")
+    else:
+        print("Oh No! The Computer takes the win. Give it another shot!")
+
+    separator_line()        
+
 def main():
     """
     Run the Royal Battleship Game, initializing boards, placing ships, and managing player and computer turns.

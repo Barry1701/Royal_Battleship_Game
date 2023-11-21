@@ -67,9 +67,6 @@ def player_turn(board, player_score, computer_score):
         break
 
 
-    data_str = input("Enter your data here:\n")
-    
-
     if board[guess_row][guess_col] == "*" or board[guess_row][guess_col] == "X":
         print("You can't guess the same coordinates twice!")
         return False

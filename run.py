@@ -37,7 +37,7 @@ def hit_shot(board, guess_row, guess_col):
     """
     return board[guess_row][guess_col] == "$"
 
-def player_turn(board, player_score):
+def player_turn(board, player_score, computer_score):
     """
     This function handles a player's turn in the game.it prompts a player
     to pick a row and a column, checks the validity of the input, updates
@@ -67,17 +67,17 @@ def player_turn(board, player_score):
         return False
 
     if hit_shot(board, guess_row, guess_col):
-        print("Player got a Hit!")
+        print(f" Player Guessed: ({guess_row}, {guess_col}) - Bullseye! You got a Hit!")
         board[guess_row][guess_col] = "*"
         player_score[0] += 1
         
         return True
     else:
-        print("Player missed this time!")
+        print(f"Player Guesses: ({guess_row}, {guess_col}) - Missed!")
         board[guess_row][guess_col] = "X"
         return False
 
-def computer_turn(board, computer_score):
+def computer_turn(board, computer_score, player_score):
     """
     This function handles the computer's turn in the game. It generates random
     coordinates for the computer's guess, checks if it's a hit, updates the game
@@ -87,14 +87,14 @@ def computer_turn(board, computer_score):
     guess_col = random.randint(0, len(board[0]) -1)
 
     if hit_shot(board, guess_row, guess_col):
-        print("Computer got a hit!")
+        print(f"Computer Guessed: ({guess_row}, {guess_col}) - Computer got a hit!")
         board[guess_row][guess_col] = "*"
         computer_score[0] += 1
         
         return True
 
     else:
-        print("Computer missed this time!")
+        print(f"Computer Guessed: ({guess_row}, {guess_col}) - Missed!")
         board[guess_row][guess_col] == "X"
         return False
 
@@ -102,7 +102,7 @@ def separator_line():
     """
     Function print a separator line
     """
-    print("-" * 43)
+    print("-" * 46)
 
 def print_scores(player, computer):
     """
@@ -145,7 +145,7 @@ def main():
     """
     print("Welcome to Royal Battleship Game")
     print("Board Size: 5. Number of Ships: 4")
-    print("Top Left Corner is Row: 0, col: 0")
+    print("Top Left Corner is Row: 0, Column: 0")
 
     player_name = input("Enter your name: ")
 
@@ -170,11 +170,11 @@ def main():
             print("Computer's Board:")
             print_board(computer_board)
 
-            player_hit = player_turn(computer_board, player_score)
+            player_turn(computer_board, player_score, computer_score)
 
             separator_line()
 
-            computer_hit = computer_turn(player_board, computer_score)
+            computer_turn(player_board, computer_score, player_score)
 
             separator_line()
 
@@ -184,7 +184,7 @@ def main():
                 if not end_game_message(player_name, player_score, computer_score):
                     break
 
-        choice = input("Enter any key to start a New Game press 'e' to Exit:")
+        choice = input("Press any key to start a New Game.\nTo exit the game, type 'e' and press Enter:")
         if choice.lower() == "e":
             break
             

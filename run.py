@@ -67,7 +67,7 @@ def player_turn(board, player_score, computer_score):
         return False
 
     if hit_shot(board, guess_row, guess_col):
-        print(f" Player Guessed: ({guess_row}, {guess_col}) - Bullseye! You got a Hit!")
+        print(f"Player Guessed: ({guess_row}, {guess_col}) - Bullseye! You got a Hit!")
         board[guess_row][guess_col] = "*"
         player_score[0] += 1
         
@@ -95,14 +95,14 @@ def computer_turn(board, computer_score, player_score):
 
     else:
         print(f"Computer Guessed: ({guess_row}, {guess_col}) - Missed!")
-        board[guess_row][guess_col] == "X"
+        board[guess_row][guess_col] = "X"
         return False
 
 def separator_line():
     """
     Function print a separator line
     """
-    print("-" * 46)
+    print("-" * 50)
 
 def print_scores(player, computer):
     """
@@ -117,9 +117,9 @@ def end_game_message(player_name, player_score, computer_score ):
     separator_line()
 
     if player_score[0] == 4:
-        print(f"Fantastic work {player_name}! You are the champion!")
+        print(f"Fantastic work {player_name}!\nYou are the champion!")
     else:
-        print("Oh No! The Computer takes the win. Give it another shot!")
+        print("Oh No! Computer takes the win.\nGive it another shot!")
 
     separator_line()
 
@@ -184,7 +184,7 @@ def main():
                 if not end_game_message(player_name, player_score, computer_score):
                     break
 
-        choice = input("Press any key to start a New Game.\nTo exit the game, type 'e' and press Enter:")
+        choice = input("Press Enter to start a New Game.\nTo exit the game, type 'e' and press Enter:")
         if choice.lower() == "e":
             break
             

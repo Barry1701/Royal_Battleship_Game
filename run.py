@@ -70,7 +70,7 @@ def player_turn(board, player_score, computer_score):
         return False
 
     if hit_shot(board, guess_row, guess_col):
-        print(f"Player Guessed: ({guess_row}, {guess_col}) - Bullseye! You got a Hit!")
+        print(f"Player Guessed: ({guess_row},{guess_col}) - Bullseye! You got a Hit!")
         board[guess_row][guess_col] = "*"
         player_score[0] += 1
         return True
@@ -82,16 +82,15 @@ def player_turn(board, player_score, computer_score):
 
 def computer_turn(board, computer_score, player_score):
     """
-    This function handles the computer's turn in the game. 
-    It generates random coordinates for the computer's guess, 
-    checks if it's a hit, updates the game board, 
-    and prints the updated scores.
+    This function handles the computer's turn in the game. It generates random
+    coordinates for the computer's guess, checks if it's a hit,updates the game
+    board, and prints the updated scores.
     """
     guess_row = random.randint(0, len(board) - 1)
     guess_col = random.randint(0, len(board[0]) - 1)
 
     if hit_shot(board, guess_row, guess_col):
-        print(f"Computer Guessed: ({guess_row}, {guess_col}) - Computer got a hit!")
+        print(f"Computer Guessed: ({guess_row},{guess_col}) - Computer got a hit!")
         board[guess_row][guess_col] = "*"
         computer_score[0] += 1
         return True
@@ -113,7 +112,7 @@ def print_scores(player, computer):
     """
     Function print the current scores.
     """
-    print(f"After this round the scores are:\nPlayer: {player[0]}. Computer: {computer[0]}")
+    print(f"After this round the scores are: \nPlayer: {player[0]}. Computer: {computer[0]}")
 
 
 def end_game_message(player_name, player_score, computer_score):
@@ -148,7 +147,8 @@ def new_game(player_board, computer_board, player_score, computer_score):
 
 def main():
     """
-    Run the Royal Battleship Game, initializing boards, placing ships, and managing player and computer turns.
+    Run the Royal Battleship Game, initializing boards, placing ships,
+    and managing player and computer turns.
     """
     print("Welcome to Royal Battleship Game")
     print("Board Size: 5. Number of Ships: 4")
@@ -186,19 +186,20 @@ def main():
             print_scores(player_score, computer_score)
 
             if player_score[0] == 4 or computer_score[0] == 4:
-                if not end_game_message(player_name, player_score, computer_score):
+                if not end_game_message(player_name, player_score,
+                                        computer_score):
                     break
 
-        choice = input("Press Enter to start a New Game.\nTo exit the game, type 'e' and press Enter:")
+        choice = input("Press Enter to start a New Game.\nTo exit the game, type 'e' and press Enter: ")
         if choice.lower() == "e":
             break
         else:
-            new_game(player_board, computer_board, player_score, computer_score)
+            new_game(player_board, computer_board,
+                     player_score, computer_score)
 
 
 if __name__ == "__main__":
     main()
-    
 
 
 

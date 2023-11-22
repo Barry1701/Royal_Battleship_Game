@@ -73,17 +73,17 @@ The first commander to sink the opponent's entire fleet claims victory.
 
 ### _Solved Bugs_
 
-* "I encountered a deployment issue initially as I had generated a list of requirements but I did not installed any dependencies beforehand, making the requirements list unnecessary. 
+* I encountered a deployment issue initially as I had generated a list of requirements but I did not installed any dependencies beforehand, making the requirements list unnecessary. 
 
 * I had some typos and indentation issues.
 
 ## Remaining Bugs
 
-* No remaining bugs
+* No remaining bugs.
 
 ## Validator Testing
 
-* No errors were returned from pep8ci.herokuapp.com
+* No errors were returned from pep8ci.herokuapp.com.
 
 ## Deployment
 
@@ -92,23 +92,23 @@ This project was deployed using Code Institute mock terminal for Heroku.
 Steps of deployment :
 
 
-1. Fork this respository
+1. Fork this respository.
 
-2. Create new Heroku app
+2. Create new Heroku app.
 
-3. set the buildpack to **Python** and **NodeJS** in that order
+3. set the buildpack to **Python** and **NodeJS** in that order.
 
-4. Link the Heroku app to the respository
+4. Link the Heroku app to the respository.
 
-5. Click on **Deploy**
+5. Click on **Deploy**.
 
 ## Credits
 
-* Code Institute for the deployment terminal
+* Code Institute for the deployment terminal.
 
-* Google for detail of Battleship Game
+* Google for detail of Battleship Game.
 
-* Portfolio project 3 scope and Love Sandwiches for inspiration
+* Portfolio project 3 scope and Love Sandwiches for inspiration.
 
 
 

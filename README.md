@@ -23,7 +23,7 @@ Take turns with the computer, calling out coordinates to locate and destroy each
 
 **Victory**:
 
-The first commander to sink the opponent's entire fleet claims victory. Will it be you or the 
+The first commander to sink the opponent's entire fleet claims victory. 
 
 ## Features
 
@@ -49,9 +49,9 @@ The first commander to sink the opponent's entire fleet claims victory. Will it 
 
 ### _Future Features_
 
-* Allow players to customize the composition of their fleet before the game begins
+* Allow players to customize the composition of their fleet before the game begins.
 
-* Implement a multiplayer mode, enabling players to compete against friends or other online opponents
+* Implement a multiplayer mode, enabling players to compete against friends or other online opponents.
 
 ## Data Model
 

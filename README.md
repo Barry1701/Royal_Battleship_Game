@@ -91,7 +91,25 @@ This project was deployed using Code Institute mock terminal for Heroku.
 
 Steps of deployment :
 
-1
+
+1. Fork this respository
+
+2. Create new Heroku app
+
+3. set the buildpack to **Python** and **NodeJS** in that order
+
+4. Link the Heroku app to the respository
+
+5. Click on **Deploy**
+
+## Credits
+
+* Code Institute for the deployment terminal
+
+* Google for detail of Battleship Game
+
+* Portfolio project 3 scope and Love Sandwiches for inspiration
+
 
 
 
